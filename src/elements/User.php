@@ -131,7 +131,7 @@ class User extends Element implements ElementInterface
         }
     }
 
-    public function disable($elementIds)
+    public function disable($elementIds, $settings = null)
     {
         $elementsService = Craft::$app->getElements();
 

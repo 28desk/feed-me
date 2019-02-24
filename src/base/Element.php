@@ -139,13 +139,21 @@ abstract class Element extends Component
         return true;
     }
 
-    public function disable($elementIds)
+    public function disable($elementIds, $settings = null)
     {
         $elementsService = Craft::$app->getElements();
 
         foreach ($elementIds as $elementId) {
-            $element = $elementsService->getElementById($elementId);
-            $element->enabled = false;
+            $element = $elementsService->getElementById($elementId, null, isset($settings['siteId']) ? $settings['siteId'] : null);
+            
+            if(isset($settings['siteId']))
+            {
+                $element->enabledForSite = false;
+            }
+            else
+            {
+                $element->enabled = false;
+            }
 
             $elementsService->saveElement($element);
         }

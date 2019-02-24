@@ -468,7 +468,7 @@ class Process extends Component
 
         if ($elementsToDeleteDisable) {
             if (DuplicateHelper::isDisable($feed)) {
-                $this->_service->disable($elementsToDeleteDisable);
+                $this->_service->disable($elementsToDeleteDisable, $settings);
                 
                 $message = 'The following elements have been disabled: ' . json_encode($elementsToDeleteDisable) . '.';
             } else {

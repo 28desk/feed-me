@@ -24,7 +24,7 @@ interface ElementInterface extends ComponentInterface
 
     public function delete($elementIds);
 
-    public function disable($elementIds);
+    public function disable($elementIds, $settings);
 
     public function save($data, $settings);
 
